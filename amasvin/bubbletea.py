@@ -13,6 +13,10 @@ class Bubbletea(Drink):
         else:
             self.pearl = int(pearl)
 
+    def order(self):
+        super().order()
+        self.set_pearl()
+
     def __str__(self):
         return super().__str__()+f'\t 펄: {Bubbletea._PEARLS[self.pearl]}'
 

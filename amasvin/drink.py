@@ -17,6 +17,9 @@ class Drink:
         else:
             self.size = int(size)
 
+        if self.size == 1: #점보라면
+            self.price += 1000
+
     def set_suger(self):
         suger = input('당도를 입력하세요 0: 0%, 1: 50%, 2: 기본, 3: 150%')
         if suger == '':  # 엔터 누르면 기본값 바로 나오게
@@ -30,6 +33,11 @@ class Drink:
             self.ice = 2
         else:
             self.ice = int(ice)
+
+    def order(self):
+        self.set_size()
+        self.set_suger()
+        self.set_ice()
 
     def __str__(self):
         return f'이름: {self.name}\t 가격: {self.price}원\t 사이즈: {Drink._SIZES[self.size]}\t 당도: {Drink._SUGARS[self.suger]}\t 얼음량: {Drink._ICES[self.ice]}'
